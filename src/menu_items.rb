@@ -1,4 +1,6 @@
-class Pizzas
+require_relative './pizzas.rb'
+
+class MenuItems < Pizzas
 
     def initialize(name, price)
         @name = name
@@ -8,5 +10,5 @@ class Pizzas
     def to_s
         return "#{@name}: $#{@price}"
     end
-
+    
 end
