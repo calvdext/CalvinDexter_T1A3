@@ -5,8 +5,9 @@ class Pizzas
         @price = price
     end
 
-    def print_pizzas
-        return "#{@name}: $#{price}"
+
+    def to_s
+        return "#{@name}: $#{@price}"
     end
-    
+
 end
