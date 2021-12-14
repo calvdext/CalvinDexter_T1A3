@@ -1,15 +1,15 @@
-require_relative './pizzas.rb'
+require_relative './menu.rb'
 require_relative './menu_items.rb'
 
 
 
-$pizza1 = Pizzas.new("Pepperoni", 12.0)
-$pizza2 = Pizzas.new("Hawaiian", 12.0)
-$pizza3 = Pizzas.new("Margarita", 12.0)
-$pizza4 = Pizzas.new("Meat Lovers", 17.0)
-$pizza5 = Pizzas.new("Pesto Chicken", 17.0)
-$pizza6 = Pizzas.new("Supreme", 17.0)
-$pizza7 = Pizzas.new("Vegatarian Supreme", 17.0)
+$pizza1 = MenuItems.new("Pepperoni", 12.0)
+$pizza2 = MenuItems.new("Hawaiian", 12.0)
+$pizza3 = MenuItems.new("Margarita", 12.0)
+$pizza4 = MenuItems.new("Meat Lovers", 17.0)
+$pizza5 = MenuItems.new("Pesto Chicken", 17.0)
+$pizza6 = MenuItems.new("Supreme", 17.0)
+$pizza7 = MenuItems.new("Vegatarian Supreme", 17.0)
 
 $sides1 = MenuItems.new("Garlic Bread", 5.0)
 $sides2 = MenuItems.new("Chicken Nuggets", 5.0)
