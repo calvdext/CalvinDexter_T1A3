@@ -3,6 +3,7 @@ require "tty-prompt"
 require_relative './seed.rb'
 
 $prompt = TTY::Prompt.new
+$pizza_menu = seed_pizza_menu
 
 #this method shows a menu and returns the selected option
 def main_menu
@@ -10,9 +11,10 @@ def main_menu
     return awsner
 end
 
+
 #method that displays list of menu items 
 def select_pizza_menu
-    select_pizza = $prompt.select("Pizza Menu Options: ", [$pizza1, $pizza2, $pizza3, $pizza4, $pizza5, $pizza6, $pizza7], "Back to Main Menu")
+    select_pizza = $prompt.select("Pizza Menu Options: ", [$pizza_menu.print_menu], "Back to Main Menu")
     return select_pizza
 end
 
