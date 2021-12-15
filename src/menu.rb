@@ -11,7 +11,10 @@ class Menu
     end
 
     def print_menu
-        @menu_items.each {|item| puts item}
+        @menu_items.each {|item| item}
     end
+
+    
+
 
 end

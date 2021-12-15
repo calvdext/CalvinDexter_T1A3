@@ -1,5 +1,4 @@
 ## CalvinDexter_T1A3
-***
 This project is to demonstrate knowledge and undersanding of Object Oriented Programming, the scope for the project is at least 3 features that are implementing ruby gems, classes, loops, methods, conditional control structures and error handling. 
 
 
