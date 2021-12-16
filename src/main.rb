@@ -1,6 +1,9 @@
 require "tty-prompt"
 
 require_relative './seed.rb'
+require_relative './menu.rb'
+require_relative './menu_items.rb'
+require_relative './order.rb'
 
 $prompt = TTY::Prompt.new
 pizza_menu = seed_pizza_menu
@@ -16,8 +19,14 @@ end
 
 #method that displays list of menu items 
 def select_pizza_menu(pizza_menu)
-    select_pizza = $prompt.select("Pizza Menu Options: ", [pizza_menu.print_menu], "Back to Main Menu")
-    return select_pizza
+    $prompt.select("Pizza Menu Options: ", [pizza_menu.print_menu], "Back to Main Menu")
+    $order = Order.new
+    if pizza_menu.print_menu == ""
+        print "Please add somthing to you're order "
+    else
+        pizza_menu.add_order << $order
+    end
+
 end
 
 def select_sides_menu(sides_menu)
@@ -32,7 +41,7 @@ end
 
 
 def select_user_order
-    
+    pizza_menu.pizza_menu
 end
 
 system "clear"
@@ -49,7 +58,7 @@ while options != "Exit App: "
     when "Drinks Menu: "
         select_drinks_menu(drinks_menu)
     when "My Order: "
-        print "New Order: "
+        $order
     when "Check Out: "
         puts "This is you're order total: "
         puts "Would you like to place this order? "

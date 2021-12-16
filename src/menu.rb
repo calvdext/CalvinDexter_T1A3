@@ -11,10 +11,14 @@ class Menu
     end
 
     def print_menu
-        @menu_items.each {|item| item}
+        @menu_items.each_with_index {|item, index| item}
+        
     end
 
-    
-
+    def add_order(menu_items)
+        @order_items = []
+        @order_items << []
+        
+    end
 
 end
