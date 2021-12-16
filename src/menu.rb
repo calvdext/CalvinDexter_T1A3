@@ -10,15 +10,15 @@ class Menu
         super()
     end
 
+    #Method to show MenuItems in menu
     def print_menu
         @menu_items.each_with_index {|item, index| item}
-        
     end
 
-    def add_order(menu_items)
+    #Method to add MenuItems objects to Order hash
+    def add_order
         @order_items = []
-        @order_items << []
-        
+        @order_items << @menu_items
     end
 
 end

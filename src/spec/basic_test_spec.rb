@@ -1,12 +1,14 @@
 require_relative'../menu.rb'
 require_relative'../menu_items.rb'
 
+
 describe "Test MenuItems" do
     it "Should store the attributes of the MenuItems" do
+        menu_items = MenuItems.new("Pepperoni", 12.0)
         @name = "Pepperoni"
         @price = 12.0
-        expect(menu_items.name).to eq(name)
-        expect(menu_items.price).to eq(price)
+        expect(menu_items.name).to eq(@name)
+        expect(menu_items.price).to eq(@price)
     end
 end
 

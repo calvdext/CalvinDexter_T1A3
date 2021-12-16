@@ -27,17 +27,17 @@ The purpose of this app is to help a local pizza store recieve orders online to 
 
 ### Scope :
 The scope for the application and deliverables are as follows:
-- User info, Name and Number
-- 3 Menu's, Pizza's, Sides and Drinks
-- User's Order 
+- User info, name and number
+- 3 Menus, pizza's, Sides and Drinks
+- User's order 
 - Checkout
 
 
 The application will use DRY methods and have the menu items easy to add and remove from a develompers stand point. 
 
 ### Functions / Features :
-- Display Menu's
-- Add menu items to User's Order
+- Display Menus
+- Add menu items to user's order
 - Place an order and get a pickup time
 ### Pseudocode :
 ```

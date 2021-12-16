@@ -1,50 +1,72 @@
 require "tty-prompt"
+require 'pry'
 
 require_relative './seed.rb'
 require_relative './menu.rb'
 require_relative './menu_items.rb'
 require_relative './order.rb'
 
+$order = Order.new
 $prompt = TTY::Prompt.new
 pizza_menu = seed_pizza_menu
 sides_menu = seed_sides_menu
 drinks_menu = seed_drinks_menu
 
+#Method to gets a user's name and number
+def user_info
+    name = $prompt.ask("What is you're name?")
+    number = $prompt.ask("what is you're number?")
+
+    puts "Hello #{name}!!"
+    puts $main_menu
+    system "clear"
+end
+
+user_info
+
 #this method shows a menu and returns the selected option
 def main_menu
     awsner = $prompt.select("Main Menu", ["Pizza Menu: ", "Sides Menu: ", "Drinks Menu: ", "My Order: ", "Check Out: ", "Exit App: "]) 
     return awsner
+
 end
 
 
 #method that displays list of menu items 
 def select_pizza_menu(pizza_menu)
-    $prompt.select("Pizza Menu Options: ", [pizza_menu.print_menu], "Back to Main Menu")
-    $order = Order.new
-    if pizza_menu.print_menu == ""
-        print "Please add somthing to you're order "
-    else
-        pizza_menu.add_order << $order
-    end
-
+    system "clear"
+    select_pizza = $prompt.select("Pizza Menu Options: ", [pizza_menu.print_menu], "Back to Main Menu").to_s
+    select_pizza = $prompt.yes?("Whould you like to add #{select_pizza} to you're order?")
+    $order.new
+    
+    binding.pry
+    
+    system "clear"
 end
 
 def select_sides_menu(sides_menu)
+    system "clear"
     select_sides = $prompt.select("Would you like to add any sides? ", [sides_menu.print_menu], "Back to Main Menu")
-    return select_sides
+    select_sides = $prompt.yes?("Whould you like to add #{select_sides} to you're order?")
+    
+    system "clear"
 end
 
 def select_drinks_menu(drinks_menu)
+    system "clear"
     select_drinks = $prompt.select("Would you like to add a drink? ", [drinks_menu.print_menu], "Back to Main Menu")
-    return select_drinks
+    select_drinks = $prompt.yes?("Whould you like to add #{select_pizza} to you're order?")
+    
+    system "clear"
 end
 
 
 def select_user_order
-    pizza_menu.pizza_menu
+    $order
 end
 
 system "clear"
+# p user_info
 puts "Welcome to Cal's Own Pizza's Store!!"
 
 options = ""
@@ -58,7 +80,7 @@ while options != "Exit App: "
     when "Drinks Menu: "
         select_drinks_menu(drinks_menu)
     when "My Order: "
-        $order
+        select_user_order
     when "Check Out: "
         puts "This is you're order total: "
         puts "Would you like to place this order? "
