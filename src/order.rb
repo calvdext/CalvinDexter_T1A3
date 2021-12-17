@@ -11,9 +11,9 @@ class Order
         
     # end
 
-    def add_order
-        @order_items.each_with_index do |item, index|
-            @order_items[item] = index
+    def add_order(name, quantity)
+        @order_items.each_with_index do |item, quantity|
+            @order_items[item] = quantity
         end
     end
 

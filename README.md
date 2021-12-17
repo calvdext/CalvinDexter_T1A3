@@ -48,7 +48,7 @@ order_checkout => order_total, total_price, ETA_pickup_time
 ***
 
 ## Work Flow 
-![workflowchart](./docs/PizzaStoreWorkflow.drawio.png)
+![workflowchart](./docs/WorkFlowPizzaStore.drawio.png)
 ***
 ## Links
 - [Github Repo](https://github.com/calvdext/CalvinDexter_T1A3)

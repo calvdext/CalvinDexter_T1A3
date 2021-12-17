@@ -15,10 +15,4 @@ class Menu
         @menu_items.each_with_index {|item, index| item}
     end
 
-    #Method to add MenuItems objects to Order hash
-    def add_order
-        @order_items = []
-        @order_items << @menu_items
-    end
-
 end

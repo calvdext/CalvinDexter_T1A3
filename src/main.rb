@@ -31,16 +31,17 @@ def main_menu
 
 end
 
-
 #method that displays list of menu items 
 def select_pizza_menu(pizza_menu)
     system "clear"
-    select_pizza = $prompt.select("Pizza Menu Options: ", [pizza_menu.print_menu], "Back to Main Menu").to_s
-    select_pizza = $prompt.yes?("Whould you like to add #{select_pizza} to you're order?")
-    $order.new
+    select_pizza = $prompt.select("Pizza Menu Options: ", [pizza_menu.print_menu], "Back to Main Menu")
+    if $prompt.yes?("Whould you like to add #{select_pizza} to you're order?") == true
+       select_pizza
+    else
+        main_menu
+    end
     
-    binding.pry
-    
+    #binding.pry
     system "clear"
 end
 
@@ -48,7 +49,6 @@ def select_sides_menu(sides_menu)
     system "clear"
     select_sides = $prompt.select("Would you like to add any sides? ", [sides_menu.print_menu], "Back to Main Menu")
     select_sides = $prompt.yes?("Whould you like to add #{select_sides} to you're order?")
-    
     system "clear"
 end
 
@@ -60,13 +60,12 @@ def select_drinks_menu(drinks_menu)
     system "clear"
 end
 
-
 def select_user_order
     $order
 end
 
 system "clear"
-# p user_info
+
 puts "Welcome to Cal's Own Pizza's Store!!"
 
 options = ""
