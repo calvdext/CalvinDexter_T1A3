@@ -1,5 +1,6 @@
 require "tty-prompt"
 require 'pry'
+require 'colorize'
 
 require_relative './seed.rb'
 require_relative './menu.rb'
@@ -26,7 +27,7 @@ user_info
 
 #this method shows a menu and returns the selected option
 def main_menu
-    awsner = $prompt.select("Main Menu", ["Pizza Menu: ", "Sides Menu: ", "Drinks Menu: ", "My Order: ", "Check Out: ", "Exit App: "]) 
+    awsner = $prompt.select("Main Menu".colorize(:red).on_blue, ["Pizza Menu: ", "Sides Menu: ", "Drinks Menu: ", "My Order: ", "Check Out: ", "Exit App: "]) 
     return awsner
 
 end
@@ -34,11 +35,11 @@ end
 #method that displays list of menu items 
 def select_pizza_menu(pizza_menu)
     system "clear"
-    select_pizza = $prompt.select("Pizza Menu Options: ", [pizza_menu.print_menu], "Back to Main Menu")
-    if $prompt.yes?("Whould you like to add #{select_pizza} to you're order?") == true
-       select_pizza
-    else
+    select_pizza = $prompt.select("Pizza Menu Options: ".colorize(:red).on_blue, [pizza_menu.print_menu, "Back to Main Menu"])
+    if "Back to Main Menu" == true
         main_menu
+    else $prompt.yes?("Whould you like to add #{select_pizza} to you're order?") == true
+        select_pizza
     end
     
     #binding.pry
@@ -47,15 +48,15 @@ end
 
 def select_sides_menu(sides_menu)
     system "clear"
-    select_sides = $prompt.select("Would you like to add any sides? ", [sides_menu.print_menu], "Back to Main Menu")
+    select_sides = $prompt.select("Would you like to add any sides? ".colorize(:red).on_blue, [sides_menu.print_menu], "Back to Main Menu")
     select_sides = $prompt.yes?("Whould you like to add #{select_sides} to you're order?")
     system "clear"
 end
 
 def select_drinks_menu(drinks_menu)
     system "clear"
-    select_drinks = $prompt.select("Would you like to add a drink? ", [drinks_menu.print_menu], "Back to Main Menu")
-    select_drinks = $prompt.yes?("Whould you like to add #{select_pizza} to you're order?")
+    select_drinks = $prompt.select("Would you like to add a drink? ".colorize(:red).on_blue, [drinks_menu.print_menu], "Back to Main Menu")
+    select_drinks = $prompt.yes?("Whould you like to add #{select_drinks} to you're order?")
     
     system "clear"
 end
@@ -66,7 +67,7 @@ end
 
 system "clear"
 
-puts "Welcome to Cal's Own Pizza's Store!!"
+puts "Welcome to Cal's Own Pizza's Store!!".colorize(:red).on_white
 
 options = ""
 while options != "Exit App: "
